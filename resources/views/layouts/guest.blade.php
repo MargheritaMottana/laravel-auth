@@ -20,6 +20,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            {{-- per controllare gli utenti loggati: --}}
+                            {{-- dd(auth()->user()) --}}
+                            
                             @auth
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>

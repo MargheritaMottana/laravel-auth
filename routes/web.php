@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 
+use App\Http\Controllers\Cartella\ProjectController;
+
+//  Model
+use App\Models\Project;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +21,15 @@ use App\Http\Controllers\Admin\MainController as AdminMainController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', function () {
+    // per testare il collegamento con il database, mi salvo i movies
+	$projects = Project::all();
+    // la funzione “all()” permette di recuperare tutte le righe della tabella
+    return view('welcome');
+    // e li mostro in pagina
+    dd($projects);
+});
 
 Route::get('/', [MainController::class, 'index'])->name('home');
 
