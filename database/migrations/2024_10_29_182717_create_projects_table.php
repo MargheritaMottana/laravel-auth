@@ -13,15 +13,20 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-
-            $table->string('title', 32);
-            $table->text('description', 1024);
-            $table->string('cover', 1024)->nullable();
-            $table->string('client', 32)->nullable();
+            // titolo
+            $table->string('title', 64);
+            // slug (testo dell'url)
+            $table->string('slug')->unique();
+            // descrizione
+            $table->text('description');
+            // immagine
+            $table->string('cover', 2048)->nullable();
+            // nome cliente
+            $table->string('client', 64)->nullable();
             // settore lavorativo
-            $table->string('sector', 32)->nullable();
-            // da iniziare-in corso-finito
-            $table->string('status', 16);
+            $table->string('sector', 64)->nullable();
+            // progetto pubblicato
+            $table->boolean('published')->default(false);
 
             $table->timestamps();
         });

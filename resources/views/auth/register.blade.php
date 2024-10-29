@@ -1,6 +1,22 @@
 @extends('layouts.guest')
 
 @section('main-content')
+
+    {{-- aggiunta errori --}}
+    @if ($errors->any())
+
+    <div class="alert alert-warning mb-3">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+            @endforeach
+        </ul>
+    </div>
+        
+    @endif
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -29,7 +45,7 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
+        <div class="my-4">
             <label for="password_confirmation">
                 Conferma Password
             </label>
@@ -41,7 +57,7 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <button type="submit">
+            <button class="btn btn-primary ms-4" type="submit">
                 Register
             </button>
         </div>

@@ -35,7 +35,7 @@
                 </a>
             @endif
 
-            <button type="submit">
+            <button class="btn btn-primary ms-4" type="submit">
                 Log in
             </button>
         </div>

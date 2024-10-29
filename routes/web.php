@@ -22,15 +22,6 @@ use App\Models\Project;
 |
 */
 
-Route::get('/', function () {
-    // per testare il collegamento con il database, mi salvo i movies
-	$projects = Project::all();
-    // la funzione “all()” permette di recuperare tutte le righe della tabella
-    return view('welcome');
-    // e li mostro in pagina
-    dd($projects);
-});
-
 Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::prefix('admin')

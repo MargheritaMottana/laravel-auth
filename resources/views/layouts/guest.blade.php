@@ -23,8 +23,10 @@
 
                             {{-- per controllare gli utenti loggati: --}}
                             {{-- dd(auth()->user()) --}}
-                            
+
+                            {{-- cambio dei link di header in base al login --}}
                             @auth
+                                {{-- log in effettuato --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                 </li>
@@ -35,6 +37,7 @@
                                     <a class="nav-link" href="#">Link 3</a>
                                 </li>
                             @else
+                                {{-- log in da effettuare --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
                                 </li>
@@ -44,6 +47,7 @@
                             @endauth
                         </ul>
 
+                        {{-- logout solo in caso l'utente sia loggato --}}
                         @auth
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
