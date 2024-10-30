@@ -41,7 +41,12 @@
                                     <td>{{ $project->published }}</td>
                                     {{-- se il progetto è pubblicato 'Yes', altrimenti 'No' --}}
                                     <td>{{ $project->published ? 'Yes' : 'No' }}</td>
-                                    <td>Actions...</td>
+                                    <td>
+                                        {{-- rotta alla view, specificando il parametro del singolo post --}}
+                                        <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">
+                                            ʘ‿ʘ
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
 
