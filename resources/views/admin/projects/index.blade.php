@@ -14,7 +14,16 @@
             </div>
         </div>
     </div>
+    {{-- bottone per creare un nuovo progetto --}}
+    <div class="row mb-4">
+        <div class="col text-center">
+            <a class="btn btn-success" href="{{ route('admin.projects.create')}}">
+                Create a new Project +
+            </a>
+        </div>
+    </div>
 
+    {{-- tabella per visualizzare tutti i progetti --}}
     <div class="row">
         <div class="col">
             <div class="card">

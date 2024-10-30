@@ -22,7 +22,7 @@ class ProjectSeeder extends Seeder
             // creo una variabile per titolo e per slug
             $title = fake()->words(5, true);
             // aggiunta slug
-            $slug = str_replace([' '], ['-'], strtolower($title));
+            $slug = str()->slug($title);
 
             Project::create([
 

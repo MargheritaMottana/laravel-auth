@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -32,7 +32,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // richiedo tutti i dati
+        $data = $request->all();
+        
+        // aggiunto lo slug perché non l'ho messo nel form
+        $data['slug'] = str()->slug($data['title']);
+        // verifico che per il valore booleano, sia effettivamente passato qualcosa
+        $data['published'] = isset($data['published']);
+
+        $project = Project::create($data);
+
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
