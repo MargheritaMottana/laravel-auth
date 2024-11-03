@@ -32,6 +32,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        // aggiungo validazione backend
+        $data = $request->validate([
+            'title'=> 'required|min:3|max:64',
+            'description'=> 'required|min:20|max:4096',
+            'cover'=> 'nullable|min:5|max:2048',
+            'client'=> 'nullable|min:3|max:64',
+            'sector'=> 'nullable|min:3|max:64',
+            'published'=> 'nullable',
+        ]);
+
         // richiedo tutti i dati
         $data = $request->all();
         

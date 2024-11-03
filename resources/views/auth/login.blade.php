@@ -1,6 +1,10 @@
 @extends('layouts.guest')
 
 @section('main-content')
+@if($errors->any())
+@dd($errors->all())
+@endif
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

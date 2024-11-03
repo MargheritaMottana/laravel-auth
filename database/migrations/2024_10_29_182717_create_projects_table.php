@@ -18,7 +18,7 @@ return new class extends Migration
             // slug (testo dell'url)
             $table->string('slug')->unique();
             // descrizione
-            $table->text('description');
+            $table->text('description', 4096);
             // immagine
             $table->string('cover', 2048)->nullable();
             // nome cliente

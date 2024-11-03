@@ -25,40 +25,44 @@
                         
                         <div class="mb-3">
                             <label for="title" class="form-label">
-                                Title
+                                Title <span class="text-danger">*</span>
                             </label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Write the title...">
+                            <input type="text" minlength="3" maxlength="64" required id="title" name="title" placeholder="Write the title..." class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label for="description" class="form-label">
-                                Description
+                                Description <span class="text-danger">*</span>
                             </label>
-                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Write the description..."></textarea>
+                            <textarea required minlength="20" maxlength="4096" id="description" name="description" rows="3" placeholder="Write the description..." class="form-control"></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="cover" class="form-label">
                                 Cover
                             </label>
-                            <input type="text" class="form-control" id="cover" name="cover" placeholder="Insert the link of the image...">
+                            <input type="text" minlength="5" maxlength="2048" id="cover" name="cover" placeholder="Insert the link of the image..." class="form-control">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="client" class="form-label">
-                                Client
-                            </label>
-                            <input type="text" class="form-control" id="client" name="client" placeholder="Write the Client's name...">
+                        <div class="row mb-4">
+
+                            <div class="col">
+                                <label for="client" class="form-label">
+                                    Client
+                                </label>
+                                <input type="text" minlength="3" maxlength="64" id="client" name="client" placeholder="Write the Client's name..." class="form-control">
+                            </div>
+    
+                            <div class="col">
+                                <label for="sector" class="form-label">
+                                    Sector
+                                </label>
+                                <input type="text" minlength="3" maxlength="64" id="sector" name="sector" placeholder="Write the sector of the project..." class="form-control">
+                            </div>
+
                         </div>
 
-                        <div class="mb-3">
-                            <label for="sector" class="form-label">
-                                Sector
-                            </label>
-                            <input type="text" class="form-control" id="sector" name="sector" placeholder="Write the sector of the project...">
-                        </div>
-
-                        <div class="form-check mb-3">
+                        <div class="form-check mb-5">
                             <input class="form-check-input" type="checkbox" value="1" id="published" name="published">
                             <label class="form-check-label" for="published">
                                 Published

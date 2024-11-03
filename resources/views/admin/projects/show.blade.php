@@ -47,7 +47,10 @@
                     </ul>
 
                     <p class="mb-0">
-                        Description: {{ $project->description }}
+                        Description:
+                        <br>
+                        {{-- per mantenere gli a capo quando visualizzo la descrizione --}}
+                        {!! nl2br($project->description) !!}
                     </p>
                 </div>
             </div>
