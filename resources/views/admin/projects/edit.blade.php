@@ -89,10 +89,21 @@
                             </label>
                         </div>
 
-                        <div>
-                            <button type="submit" class="btn btn-outline-warning">
-                                Submit
-                            </button>
+                        <div class="d-flex justify-content-start">
+
+                            <div class="me-3">
+                                <button type="submit" class="btn btn-outline-warning">
+                                    Submit
+                                </button>
+                            </div>
+    
+                            {{-- "bottone per annullare le modifiche" --}}
+                            <div class="me-3">
+                                <a href="{{ route('admin.projects.show', ['project' => $project->id])}}" type="submit" class="btn btn-outline-success">
+                                    Cancel
+                                </a>
+                            </div>
+
                         </div>
 
                     </form>
