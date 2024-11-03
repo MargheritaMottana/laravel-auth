@@ -23,17 +23,16 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <img src="{{ $project->card }}" class="card-img-top" alt="{{ $project->title }}">
+                <img src="{{ $project->cover }}" class="card-img-top" alt="{{ $project->title }}">
 
                 <div class="card-body">
                     <ul>
                         <li>
                             ID: {{ $project->id }}
                         </li>
+
                         <li>
                             Slug: {{ $project->slug }}
-                        </li>
-                        <li>
                         </li>
                         <li>
                             Client: {{ $project->client }}
@@ -46,12 +45,17 @@
                         </li>
                     </ul>
 
-                    <p class="mb-0">
+                    <p class="mb-4">
                         Description:
                         <br>
                         {{-- per mantenere gli a capo quando visualizzo la descrizione --}}
                         {!! nl2br($project->description) !!}
                     </p>
+
+                    {{-- rotta alla view per modificare il progetto, specificando il parametro del singolo progetto --}}
+                    <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">
+                        ໒(⊙ᴗ⊙)७✎
+                    </a>
                 </div>
             </div>
         </div>

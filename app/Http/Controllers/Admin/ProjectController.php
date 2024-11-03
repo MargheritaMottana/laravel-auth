@@ -32,18 +32,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // aggiungo validazione backend
+        // richiedo tutti i dati con validazione backend
         $data = $request->validate([
             'title'=> 'required|min:3|max:64',
             'description'=> 'required|min:20|max:4096',
-            'cover'=> 'nullable|min:5|max:2048',
+            'cover'=> 'nullable|url|min:5|max:2048',
             'client'=> 'nullable|min:3|max:64',
             'sector'=> 'nullable|min:3|max:64',
-            'published'=> 'nullable',
+            'published'=> 'nullable|in:1,0,true,false',
         ]);
-
-        // richiedo tutti i dati
-        $data = $request->all();
         
         // aggiunto lo slug perché non l'ho messo nel form
         $data['slug'] = str()->slug($data['title']);
@@ -68,7 +65,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -76,7 +73,22 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->validate([
+            'title'=> 'required|min:3|max:64',
+            'description'=> 'required|min:20|max:4096',
+            'cover'=> 'nullable|url|min:5|max:2048',
+            'client'=> 'nullable|min:3|max:64',
+            'sector'=> 'nullable|min:3|max:64',
+            'published'=> 'nullable|in:1,0,true,false',
+        ]);
+        
+        $data['slug'] = str()->slug($data['title']);
+        $data['published'] = isset($data['published']);
+
+        $project->update($data);
+
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
+
     }
 
     /**

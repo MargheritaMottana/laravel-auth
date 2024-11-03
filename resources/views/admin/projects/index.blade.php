@@ -51,9 +51,14 @@
                                     {{-- se il progetto è pubblicato 'Yes', altrimenti 'No' --}}
                                     <td>{{ $project->published ? 'Yes' : 'No' }}</td>
                                     <td>
-                                        {{-- rotta alla view, specificando il parametro del singolo post --}}
+                                        {{-- rotta alla view per vedere il progetto, specificando il parametro del singolo progetto --}}
                                         <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">
-                                            ʘ‿ʘ
+                                            ໒(⊙ᴗ⊙)७
+                                        </a>
+
+                                        {{-- rotta alla view per modificare il progetto, specificando il parametro del singolo progetto --}}
+                                        <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">
+                                            ໒(⊙ᴗ⊙)७✎
                                         </a>
                                     </td>
                                 </tr>
